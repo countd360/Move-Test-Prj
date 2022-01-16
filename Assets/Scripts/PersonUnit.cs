@@ -13,7 +13,7 @@ public class PersonUnit : Unit  // INHERITANCE
 
     void Awake()
     {
-        name = "The Farmer";
+        Name = "Farmer";
     }
 
     public override void GoTo(Vector3 dstPosition)

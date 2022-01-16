@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public TextMeshProUGUI unitName;
 
     public Camera GameCamera;
     public float PanSpeed = 10.0f;
@@ -53,7 +56,15 @@ public class GameManager : MonoBehaviour
             var unit = hit.collider.GetComponentInParent<Unit>();
             selectedUnit = unit;
 
-            Debug.Log("hit on " + hit.collider.gameObject.name + ", Select = " + unit);
+            //Debug.Log("hit on " + hit.collider.gameObject.name + ", Select = " + unit);
+            if (unit == null)
+            {
+                unitName.text = "---";
+            }
+            else
+            {
+                unitName.text = unit.Name;
+            }
         }
     }
 
@@ -65,7 +76,7 @@ public class GameManager : MonoBehaviour
         {
             if (hit.collider.gameObject.name.Equals("Ground"))
             {
-                Debug.Log("GOTO: " + hit.point);
+                //Debug.Log("GOTO: " + hit.point);
                 selectedUnit.GoTo(hit.point);
             }
         }

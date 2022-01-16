@@ -14,7 +14,7 @@ public class BallUnit : Unit    // INHERITANCE
     // Start is called before the first frame update
     void Awake()
     {
-        name = "The Rolling Ball";
+        Name = "Rolling Ball";
         offset = new Vector3(0, 0.5f, 0);
     }
 
